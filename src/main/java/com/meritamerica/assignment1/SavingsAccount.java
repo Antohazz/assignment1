@@ -9,7 +9,7 @@ package com.meritamerica.assignment1;
 public class SavingsAccount{
 	
 	private final double INTEREST_RATE = 0.01; // Interest rate
-	private double balance = 0;	// Current balance
+	private double balance = 0.0;	// Current balance
 	
 	//Sets opening balance
 	SavingsAccount(double openingBalance){

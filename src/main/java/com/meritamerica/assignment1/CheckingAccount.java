@@ -8,7 +8,7 @@ package com.meritamerica.assignment1;
 public class CheckingAccount {
 	
 	private final double INTEREST_RATE = 0.0001; // Interest rate
-	private double balance = 0;			  // Current balance
+	private double balance = 0.0;			  // Current balance
 	
 	//Sets opening balance
 	CheckingAccount(double openingBalance){
