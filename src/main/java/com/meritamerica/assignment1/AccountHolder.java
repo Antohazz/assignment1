@@ -1,14 +1,27 @@
 package com.meritamerica.assignment1;
 
 public class AccountHolder {
-	AccountHolder accountHolder = new AccountHolder();
 	
 	private String firstName = "";
 	private String middleName = "";
 	private String lastName = "";
 	private String ssn = "";
-	private double checkingAccountOpeningBalance = 0.0;
-	private double savingsAccountOpeningBalnce = 0.0;
+	checkingAccount checkingAccount = null;
+    savingsAccount savingsAccount = null;
+	
+	public AccountHolder() {
+		
+	}
+	
+	public AccountHolder(String firstName, String middleName, String lastName, String ssn, double checkingAccountOpeningBalance, double savingsAccountOpeningBalance){
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.ssn = ssn;
+		this.checkingAccount = new checkingAccount(checkingAccountOpeningBalance);
+		this.savingsAccount = new savingsAccount(savingsAccountOpeningBalance);
+	}
+	
 	
 	
 	
@@ -49,7 +62,9 @@ public class AccountHolder {
 		this.savingsAccountOpeningBalnce = savingsAccountOpeningBalnce;
 	}
 	
-	
+	public String toString() {
+		
+	}
 	
 	
 }
