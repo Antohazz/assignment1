@@ -30,7 +30,10 @@ public class CheckingAccount {
 		if (amount > 0 && amount <= balance) {
 			balance -=amount;
 			return true;
-		}else return false;
+		}else {
+			System.out.println("Incorrect amount or exceeding balance.");
+			return false;
+			}
 		
 	}
 	
@@ -39,7 +42,10 @@ public class CheckingAccount {
 		if(amount > 0) {
 			balance +=amount;
 			return true;
-		}else return false;
+		}else {
+			System.out.println("Can't be zero or negative.");
+			return false;
+		}
 		
 	}
 	
