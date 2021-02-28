@@ -6,8 +6,8 @@ public class AccountHolder {
 	private String middleName = "";
 	private String lastName = "";
 	private String ssn = "";
-	checkingAccount checkingAccount = null;
-    savingsAccount savingsAccount = null;
+	CheckingAccount checkingAccount;
+	SavingsAccount savingsAccount;
 	
 	public AccountHolder() {
 		
@@ -18,11 +18,9 @@ public class AccountHolder {
 		this.middleName = middleName;
 		this.lastName = lastName;
 		this.ssn = ssn;
-		this.checkingAccount = new checkingAccount(checkingAccountOpeningBalance);
-		this.savingsAccount = new savingsAccount(savingsAccountOpeningBalance);
+		this.checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
+		this.savingsAccount = new SavingsAccount(savingsAccountOpeningBalance);
 	}
-	
-	
 	
 	
 	public String getFirstName() {
@@ -49,21 +47,21 @@ public class AccountHolder {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
-	public double getCheckingAccountOpeningBalance() {
-		return checkingAccountOpeningBalance;
+	
+	public CheckingAccount getcheckingAccount() {
+		return checkingAccount;
 	}
-	public void setCheckingAccountOpeningBalance(double checkingAccountOpeningBalance) {
-		this.checkingAccountOpeningBalance = checkingAccountOpeningBalance;
-	}
-	public double getSavingsAccountOpeningBalnce() {
-		return savingsAccountOpeningBalnce;
-	}
-	public void setSavingsAccountOpeningBalnce(double savingsAccountOpeningBalnce) {
-		this.savingsAccountOpeningBalnce = savingsAccountOpeningBalnce;
+	
+	public SavingsAccount getsavingsAccount() {
+		return savingsAccount;
 	}
 	
 	public String toString() {
-		
+		return" Name : "+firstName+" "+middleName+" "+lastName+"\n"+
+				"Social Security :"+ssn.toString()+"\n "+
+				checkingAccount.toString()+
+				savingsAccount.toString()
+				;
 	}
 	
 	

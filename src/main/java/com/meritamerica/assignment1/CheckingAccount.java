@@ -2,6 +2,7 @@
 package com.meritamerica.assignment1;
 
 public class CheckingAccount {
+	
 	private double balance = 0.0;
 	private final double interestRate = 0.0001;
 	private double FV = 0;
@@ -30,14 +31,34 @@ public class CheckingAccount {
 			return false;
 		}
 	}
-	/* deposit ammount, it has to be an amount thats greater than 0 of course*/
+	/* deposit amount, it has to be an amount thats greater than 0 of course*/
 	public boolean deposit(double amount) {
+		if(amount > 0) {
+			balance += amount;
+			System.out.println("You current balance is now :$");
+			return true;
+		}else {
+			System.out.println("You can not deposit an amount less then zero!");
+			return false;
+		}
+	}
+	
+	public double futureValue(int years) {
 		
 	}
+	public String toString() {
+	return toString();
 }
-//CheckingAccount
-//CheckingAccount(double openingBalance)
+}
+//SavingsAccount(double openingBalance)
 //double getBalance()
 //double getInterestRate()
 //boolean withdraw(double amount)
 //boolean deposit(double amount)
+//double futureValue(int years)
+//String toString()
+//Sample output:
+//Savings Account Balance: $1000
+//Savings Account Interest Rate: 0.01
+//Savings Account Balance in 3 years: $1030.03
+
