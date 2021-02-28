@@ -5,7 +5,7 @@ public class CheckingAccount {
 	
 	private double balance = 0.0;
 	private final double interestRate = 0.0001;
-	private double FV = 0;
+	private double futureValue = 0;
 	private int years = 0;
 	
 	
@@ -44,10 +44,17 @@ public class CheckingAccount {
 	}
 	
 	public double futureValue(int years) {
-		
+		double value = 0.00;
+		this.years = years;
+		double powered = Math.pow(1 + interestRate, years);
+		value = balance = powered;
+		futureValue = value;
+		return futureValue;
 	}
 	public String toString() {
-	return toString();
+		double futureValue = futureValue(years);
+		return "Checking Account Balance: "+balance+"\n Checking Account Interest: "+interestRate+
+				"\n Checking Account Balance in years: "+years+"years: "+futureValue;
 }
 }
 //SavingsAccount(double openingBalance)
