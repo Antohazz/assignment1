@@ -1,75 +1,69 @@
 package com.meritamerica.assignment1;
 
-public class SavingsAccount {
-	private double balance = 0.0;
-	private final double interestRate = 0.0001;
-	private double futureValue = 0;
-	private int years = 0;
+/* Savings account class.
+ * Allows to access balance, do deposit/withdraw, calculate future value
+ * and set interest rate. 
+ */
 
-	public SavingsAccount(double savingsAccountopeningBalance) {
-		this.balance = savingsAccountopeningBalance;
+
+public class SavingsAccount{
+	
+	private final double INTEREST_RATE = 0.01; // Interest rate
+	private double balance = 0.0;	// Current balance
+	
+	//Sets opening balance
+	SavingsAccount(double openingBalance){
+		this.balance = openingBalance;
 	}
-
-	public double getBalance() {
+	
+	//Balance getter
+	protected double getBalance() {
 		return balance;
 	}
-
-	public double getInterestRate() {
-		return interestRate;
+	
+	//Interest getter
+	protected double getInterestRate() {
+		return INTEREST_RATE;
 	}
-
-	/*
-	 * this is to withdraw an amount greater than 0 but with the available funds if
-	 * not its returns a false
-	 */
-	public boolean withdraw(double amount) {
+	
+	//Withdraw method. Overdraft not allowed.
+	protected boolean withdraw(double amount) {
 		if (amount > 0 && amount <= balance) {
-			balance -= amount;
-			System.out.print("Your current blance is now :$");
+			balance -=amount;
 			return true;
-		} else {
-			System.out.println("You can not withdraw more than your current balance :$");
+		}else {
+			System.out.println("Incorrect amount or exceeding balance.");
 			return false;
 		}
+		
 	}
-
-	/* deposit amount, it has to be an amount thats greater than 0 of course */
-	public boolean deposit(double amount) {
-		if (amount > 0) {
-			balance += amount;
-			System.out.println("You current balance is now :$");
+	
+	//Deposit method. Not allowed 0 & negative deposit.
+	protected boolean deposit(double amount) {
+		if(amount > 0) {
+			balance +=amount;
 			return true;
-		} else {
-			System.out.println("You can not deposit an amount less then zero!");
+		}else {
+			System.out.println("Can't be zero or negative.");
 			return false;
 		}
+		
 	}
-
-	public double futureValue(int years) {
-		double value = 0.00;
-		this.years = years;
-		double powered = Math.pow(1 + interestRate, years);
-		value = balance = powered;
-		futureValue = value;
-		return futureValue;
+	
+	// Outputs the future value of the account balance based on the interest/years.
+	protected double futureValue(int years) {
+		double futureBalance = balance * Math.pow(1 + getInterestRate(), years);
+		return futureBalance;
 	}
-
+	
+	
+	// Outputs account info
 	public String toString() {
-		double futureValue = futureValue(years);
-		return "Savings Account Balance: " + balance + "\n Savings Account Interest Rate" + interestRate
-				+ "\n Savings Account Balance in years: " + years + "years: " + futureValue;
+		String saveAccInfo = "Savings Account Balance: $" + balance + "/n"+
+				"Savings Account Interest Rate: " + getInterestRate() + "/n"+
+				"Savings Account Balance in 3 years: $" + futureValue(3);
+		return saveAccInfo;
 	}
-
+	
+	
 }
-//SavingsAccount
-//SavingsAccount(double openingBalance)
-//double getBalance()
-//double getInterestRate()
-//boolean withdraw(double amount)
-//boolean deposit(double amount)
-//double futureValue(int years)
-//String toString()
-//Sample output:
-//Savings Account Balance: $1000
-//Savings Account Interest Rate: 0.01
-//Savings Account Balance in 3 years: $1030.03

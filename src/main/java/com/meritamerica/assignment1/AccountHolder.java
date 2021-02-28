@@ -1,72 +1,108 @@
 package com.meritamerica.assignment1;
 
+/* AccountHolder class for MeritAmericaBankApp.
+ * Allows to create new account account.
+ * Provides getter and setter methods to access account's properties.
+ */
+
+
 public class AccountHolder {
 	
-	private String firstName = "";
-	private String middleName = "";
-	private String lastName = "";
-	private String ssn = "";
-	CheckingAccount checkingAccount;
-	SavingsAccount savingsAccount;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String ssn;
+	private CheckingAccount checkingAccount;
+	private SavingsAccount savingsAccount;
+
+	
+	//Constructors
 	
 	public AccountHolder() {
+
+	}
+	
+	public AccountHolder (String firstName, String middleName, String lastName, String ssn,
+						double checkingAccountOpeningBalance, double savingsAccountOpeningBalance) {
+
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.ssn = ssn;
+		checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
+		savingsAccount = new SavingsAccount(savingsAccountOpeningBalance);
 		
 	}
+		
 	
-	public AccountHolder(String firstName, String middleName, String lastName, String ssn, double checkingAccountOpeningBalance, double savingsAccountOpeningBalance){
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.ssn = ssn;
-		this.checkingAccount = new CheckingAccount(checkingAccountOpeningBalance);
-		this.savingsAccount = new SavingsAccount(savingsAccountOpeningBalance);
-	}
+	//Account GETTERS and SETTERS
 	
+	//First name setter & getter
 	
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
+	protected void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getMiddleName() {
-		return middleName;
+	
+	protected String getFirstName() {
+		return firstName; 
 	}
-	public void setMiddleName(String middleName) {
+	
+	
+	//Middle name setter & getter
+	
+	protected void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-	public String getLastName() {
-		return lastName;
+
+	protected String getMiddleName() {
+		return middleName; 
 	}
-	public void setLastName(String lastName) {
+	
+	
+	//Last name setter & getter
+	
+	protected void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getSsn() {
-		return ssn;
+
+	protected String getLastName() {
+		return lastName; 
 	}
-	public void setSsn(String ssn) {
+	
+	//SSN setter & getter
+	
+	protected void setSSN(String ssn) {
 		this.ssn = ssn;
 	}
-	
-	public CheckingAccount getcheckingAccount() {
-		return checkingAccount;
+
+	protected String getSSN() {
+		return ssn; 
 	}
 	
-	public SavingsAccount getsavingsAccount() {
-		return savingsAccount;
+
+	//Accounts getters
+	
+	protected CheckingAccount getCheckingAccount() {
+		return checkingAccount; 
+	}
+		
+	protected SavingsAccount getSavingsAccount() {
+		return savingsAccount; 
 	}
 	
+
+	// OUTPUT
+	// Outputs account info
 	public String toString() {
-		return" Name : "+firstName+" "+middleName+" "+lastName+"\n"+
-				"Social Security :"+ssn.toString()+"\n "+
-				checkingAccount.toString()+
-				savingsAccount.toString()
-				;
-	}
-	
+		String accountInfo = "Name: " + getFirstName() + " " + getMiddleName() + " " + getLastName() + "/n" +
+				"SSN: " + getSSN() + "/n" +
+				"Checking Account Balance: $" + getCheckingAccount().getBalance() + "/n"+
+				"Checking Account Interest Rate: " + getCheckingAccount().getInterestRate() +"/n"+
+				"Checking Account Balance in 3 years: $" + "/n" +
+				"Savings Account Balance: $" + getSavingsAccount().getBalance() + "/n" +
+				"Savings Account Interest Rate: " + getSavingsAccount().getInterestRate()+ "/n" +
+				"Savings Account Balance in 3 years: $";
+		return accountInfo;	
+		}
 	
 }
-
-//AccountHolder
-//AccountHolder() - default constructor
-//AccountHolder(String firstName, String middleName, String lastName, String ssn, double checkingAccountOpeningBalance, double savingsAccountOpeningBalance)
