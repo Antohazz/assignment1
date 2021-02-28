@@ -1,6 +1,8 @@
 package com.meritamerica.assignment1;
 
 /*Assignment 1
+ * 
+ * Completed by Anton Ivanov and Gabriel Gualteros
 *This program is a Beta version of Merit America Bank software system.
 *It stores the following information about the account holders:
 *First Name
